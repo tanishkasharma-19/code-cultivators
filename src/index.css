@@ -1,13 +1,143 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Agricultural Colors */
+  --ag-primary: #16a34a;      /* Forest Green */
+  --ag-primary-dark: #15803d;  /* Dark Green */
+  --ag-primary-light: #22c55e; /* Light Green */
+  
+  /* Secondary Colors */
+  --ag-secondary: #eab308;     /* Golden Yellow */
+  --ag-secondary-dark: #ca8a04; /* Dark Yellow */
+  --ag-secondary-light: #fbbf24; /* Light Yellow */
+  
+  /* Earth Tones */
+  --ag-earth-brown: #92400e;   /* Brown */
+  --ag-earth-tan: #d97706;     /* Tan */
+  --ag-earth-beige: #f59e0b;   /* Beige */
+  
+  /* Sky & Water */
+  --ag-sky: #0ea5e9;           /* Sky Blue */
+  --ag-water: #06b6d4;         /* Water Blue */
+  
+  /* Neutrals */
+  --ag-gray-50: #fafafa;
+  --ag-gray-100: #f5f5f5;
+  --ag-gray-200: #e5e5e5;
+  --ag-gray-600: #525252;
+  --ag-gray-800: #262626;
+  --ag-gray-900: #171717;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Professional Agricultural Button Styles */
+@layer components {
+  .btn-ag-primary {
+    @apply bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-ag-secondary {
+    @apply bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .card-ag {
+    @apply bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100;
+  }
+  
+  .ag-gradient-primary {
+    background: linear-gradient(135deg, var(--ag-primary) 0%, var(--ag-primary-light) 100%);
+  }
+  
+  .ag-gradient-earth {
+    background: linear-gradient(135deg, var(--ag-earth-brown) 0%, var(--ag-earth-tan) 100%);
+  }
+  
+  .text-ag-primary {
+    color: var(--ag-primary);
+  }
+  
+  .text-ag-secondary {
+    color: var(--ag-secondary);
+  }
+}
+
+/* Professional Typography */
+.ag-heading {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  color: var(--ag-gray-800);
+}
+
+.ag-body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  color: var(--ag-gray-600);
+}
+
+/* Professional Sidebar */
+.ag-sidebar {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Professional Cards */
+.ag-card-elevated {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Professional Animations */
+.ag-animate-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Add these classes to your CSS */
+.professional-icon {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.icon-hover-effect {
+  transition: all 0.2s ease;
+}
+
+.icon-hover-effect:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+/* Make white backgrounds blend with containers */
+.icon-white-bg-fix {
+  mix-blend-mode: multiply;
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(5588%) hue-rotate(100deg) brightness(97%) contrast(80%);
+}
+
+/* Icon containers for better visual integration */
+.icon-container {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Remove white backgrounds using CSS filters */
+.remove-white-bg {
+  filter: 
+    brightness(0) 
+    saturate(100%) 
+    invert(27%) 
+    sepia(51%) 
+    saturate(5588%) 
+    hue-rotate(100deg) 
+    brightness(97%) 
+    contrast(80%);
 }
