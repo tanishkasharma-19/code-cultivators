@@ -212,55 +212,48 @@ const CropRecommendation: React.FC<CropRecommendationProps> = ({ location, seaso
         ))}
       </div>
 
-      {/* ✅ WORKING CROP DETAILS MODAL */}
-      <Modal 
-        isOpen={showDetailsModal} 
-        onClose={() => setShowDetailsModal(false)}
-        title={`${selectedCrop?.name} - Detailed Information`}
-        size="xl"
-      >
-        {selectedCrop && (
-          <div className="space-y-6">
-            {/* Header with Image */}
-            <div className="flex items-center space-x-6 mb-6">
-              <img 
-                src={selectedCrop.image} 
-                alt={selectedCrop.name}
-                className="w-24 h-24 object-cover rounded-xl"
-              />
-              <div>
-                <h4 className="text-2xl font-bold text-gray-800">{selectedCrop.name}</h4>
-                <p className="text-green-600 font-semibold">{selectedCrop.suitability}% Suitability Match</p>
-                <p className="text-gray-600">Recommended for {selectedCrop.season} season</p>
-              </div>
-            </div>
+     {/* ✅ CROP DETAILS MODAL - BUTTONS REMOVED */}
+<Modal 
+  isOpen={showDetailsModal} 
+  onClose={() => setShowDetailsModal(false)}
+  title={`${selectedCrop?.name} - विस्तृत जानकारी`}
+  size="xl"
+>
+  {selectedCrop && (
+    <div className="space-y-6">
+      {/* Header with Image */}
+      <div className="flex items-center space-x-6 mb-6">
+        <img 
+          src={selectedCrop.image} 
+          alt={selectedCrop.name}
+          className="w-24 h-24 object-cover rounded-xl"
+        />
+        <div>
+          <h4 className="text-2xl font-bold text-gray-800">{selectedCrop.name}</h4>
+          <p className="text-green-600 font-semibold">{selectedCrop.suitability}% उपयुक्तता</p>
+          <p className="text-gray-600">{selectedCrop.season} सीज़न के लिए सुझावित</p>
+        </div>
+      </div>
 
-            {/* Detailed Information Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {Object.entries(selectedCrop.details).map(([key, value]) => (
-                <div key={key} className="bg-gray-50 p-4 rounded-lg">
-                  <div className="text-sm text-gray-600 font-medium capitalize mb-1">
-                    {key.replace(/([A-Z])/g, ' $1')}
-                  </div>
-                  <div className="text-lg font-semibold text-gray-800">
-                    {String(value)}
-                  </div>
-                </div>
-              ))}
+      {/* Detailed Information Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {Object.entries(selectedCrop.details).map(([key, value]) => (
+          <div key={key} className="bg-gray-50 p-4 rounded-lg">
+            <div className="text-sm text-gray-600 font-medium capitalize mb-1">
+              {key.replace(/([A-Z])/g, ' $1')}
             </div>
-
-            {/* Action Buttons */}
-            <div className="flex space-x-4 pt-4">
-              <button className="flex-1 bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition-colors font-semibold">
-                Add to Farm Plan
-              </button>
-              <button className="flex-1 bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-colors font-semibold">
-                Get Seeds Quote
-              </button>
+            <div className="text-lg font-semibold text-gray-800">
+              {String(value)}
             </div>
           </div>
-        )}
-      </Modal>
+        ))}
+      </div>
+
+      {/* ✅ REMOVED: Add to Farm Plan and Get Seeds Quote buttons */}
+    </div>
+  )}
+</Modal>
+
     </div>
   );
 };
